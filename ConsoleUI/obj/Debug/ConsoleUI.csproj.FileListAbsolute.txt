@@ -1,0 +1,11 @@
+C:\Users\Justin\Documents\code\BattleshipLiteApp\ConsoleUI\bin\Debug\ConsoleUI.exe.config
+C:\Users\Justin\Documents\code\BattleshipLiteApp\ConsoleUI\bin\Debug\ConsoleUI.exe
+C:\Users\Justin\Documents\code\BattleshipLiteApp\ConsoleUI\bin\Debug\ConsoleUI.pdb
+C:\Users\Justin\Documents\code\BattleshipLiteApp\ConsoleUI\bin\Debug\BattleShipLiteLibrary.dll
+C:\Users\Justin\Documents\code\BattleshipLiteApp\ConsoleUI\bin\Debug\BattleShipLiteLibrary.pdb
+C:\Users\Justin\Documents\code\BattleshipLiteApp\ConsoleUI\obj\Debug\ConsoleUI.csproj.AssemblyReference.cache
+C:\Users\Justin\Documents\code\BattleshipLiteApp\ConsoleUI\obj\Debug\ConsoleUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\Justin\Documents\code\BattleshipLiteApp\ConsoleUI\obj\Debug\ConsoleUI.csproj.CoreCompileInputs.cache
+C:\Users\Justin\Documents\code\BattleshipLiteApp\ConsoleUI\obj\Debug\ConsoleUI.csproj.CopyComplete
+C:\Users\Justin\Documents\code\BattleshipLiteApp\ConsoleUI\obj\Debug\ConsoleUI.exe
+C:\Users\Justin\Documents\code\BattleshipLiteApp\ConsoleUI\obj\Debug\ConsoleUI.pdb
