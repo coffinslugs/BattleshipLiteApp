@@ -25,10 +25,34 @@ namespace BattleShipLite
                 // Ask activePlayer for a shot
                 // Determine if shot is valid
                 // Determine shot results
-                // If game over, set activePlayer as winner
+                RecordPlayerShot(activePlayer, opponent);
+
+                // Determine if game should continue
+                bool doesGameContinue = GameLogic.PlayerStillActive(opponent);
+
                 // else, swapt positions (activePlayer becomes opponent)
+                if (doesGameContinue == true)
+                {
+
+                }
+                else
+                {
+                    winner = activePlayer;
+                }
+
             } while (winner == null);
 
+        }
+
+        private static void RecordPlayerShot(PlayerInfoModel activePlayer, PlayerInfoModel opponent)
+        {
+            // Asks for a shot ("B2" not "B" then "2")
+            // Determine row and column
+            // Determine if that is a valid shot
+            // Go back to beginning if it's invalid
+
+            // Determine results of shot
+            // Record results
         }
 
         private static void DisplayShotGrid(PlayerInfoModel activePlayer)
