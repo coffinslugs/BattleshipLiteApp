@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/BattleShipLiteLibrary/obj/Debug/BattleShipLiteLibrary.csproj.FileListAbsolute.txt
+/BattleShipLiteLibrary/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/ConsoleUI/bin/Debug/ConsoleUI.exe
+/ConsoleUI/bin/Debug/ConsoleUI.pdb
