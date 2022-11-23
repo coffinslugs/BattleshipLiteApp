@@ -67,7 +67,11 @@ namespace BattleShipLiteLibrary
 
         public static (string row, int column) SplitShotIntoRowAndColumn(string shot)
         {
-            throw new NotImplementedException();
+            shot = shot.Trim();
+            string row = shot[0].ToString();
+            int column = shot[1];
+
+            return (row, column);
         }
 
         public static bool ValidateShot(PlayerInfoModel activePlayer, string row, int column)
