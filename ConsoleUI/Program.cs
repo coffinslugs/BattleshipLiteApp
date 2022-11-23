@@ -19,20 +19,14 @@ namespace BattleShipLite
 
             do
             {
-                // Display grid activePlayer grid showing where they fired
                 DisplayShotGrid(activePlayer);
-
-                // Ask activePlayer for a shot
-                // Determine if shot is valid
-                // Determine shot results
                 RecordPlayerShot(activePlayer, opponent);
-
-                // Determine if game should continue
+                
                 bool doesGameContinue = GameLogic.PlayerStillActive(opponent);
 
-                // else, swapt positions (activePlayer becomes opponent)
                 if (doesGameContinue == true)
                 {
+                    (activePlayer, opponent) = (opponent, activePlayer);
 
                 }
                 else
@@ -42,17 +36,47 @@ namespace BattleShipLite
 
             } while (winner == null);
 
+            IdentifyWinner(winner);
+
+        }
+
+        private static void IdentifyWinner(PlayerInfoModel winner)
+        {
+            Console.WriteLine($"Congratulations to { winner.PlayerName } for winning!");
+            Console.WriteLine($"{ winner.PlayerName } took { GameLogic.GetShotCount(winner) } shots.");
         }
 
         private static void RecordPlayerShot(PlayerInfoModel activePlayer, PlayerInfoModel opponent)
         {
-            // Asks for a shot ("B2" not "B" then "2")
-            // Determine row and column
-            // Determine if that is a valid shot
-            // Go back to beginning if it's invalid
+            bool isValidShot = false;
+            string row = "";
+            int column = 0;
 
-            // Determine results of shot
-            // Record results
+            do
+            {
+                string shot = AskForShot();
+                (row, column) = GameLogic.SplitShotIntoRowAndColumn(shot);
+                isValidShot = GameLogic.ValidateShot(activePlayer, row, column);
+
+                if(isValidShot == false)
+                {
+                    Console.WriteLine("Invalid shot location. Please try again.");
+                }
+
+            } while (isValidShot == false);
+
+            bool isAHit = GameLogic.IdentifyShotResult(opponent, row, column);
+
+            GameLogic.MarkShotResult(activePlayer, row, column, isAHit);
+
+        }
+
+        private static string AskForShot()
+        {
+            Console.Write("Please enter your shot selection: ");
+            string output = Console.ReadLine();
+
+            return output;
         }
 
         private static void DisplayShotGrid(PlayerInfoModel activePlayer)
