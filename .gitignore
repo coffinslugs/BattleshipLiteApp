@@ -365,3 +365,6 @@ FodyWeavers.xsd
 /BattleShipLiteLibrary/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 /ConsoleUI/bin/Debug/ConsoleUI.exe
 /ConsoleUI/bin/Debug/ConsoleUI.pdb
+/BattleShipLiteLibrary/bin/Debug/BattleShipLiteLibrary.pdb
+/BattleShipLiteLibrary/obj/Debug/BattleShipLiteLibrary.pdb
+/ConsoleUI/bin/Debug/BattleShipLiteLibrary.pdb
