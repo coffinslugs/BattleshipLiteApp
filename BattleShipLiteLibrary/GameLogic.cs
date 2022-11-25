@@ -174,12 +174,37 @@ namespace BattleShipLiteLibrary
 
         public static bool IdentifyShotResult(PlayerInfoModel opponent, string row, int column)
         {
-            throw new NotImplementedException();
+            bool isAHit = false;
+
+            foreach (var ship in opponent.ShipLocation)
+            {
+                if (ship.SpotLetter == row.ToUpper() && ship.SpotNumber == column)
+                {
+                    isAHit = true;
+                }
+            }
+
+            return isAHit;
         }
 
-        public static void MarkShotResult(PlayerInfoModel activePlayer, string row, int column, bool isAHit)
+        public static void MarkShotResult(PlayerInfoModel player, string row, int column, bool isAHit)
         {
-            throw new NotImplementedException();
+            bool isValidLocation = true;
+
+            foreach (var gridSpot in player.ShotGrid)
+            {
+                if (gridSpot.SpotLetter == row.ToUpper() && gridSpot.SpotNumber == column)
+                {
+                    if (isAHit)
+                    {
+                        gridSpot.Status = GridSpotStatus.Hit;
+                    }
+                    else
+                    {
+                        gridSpot.Status = GridSpotStatus.Miss;
+                    }
+                }
+            }
         }
     }
 }
