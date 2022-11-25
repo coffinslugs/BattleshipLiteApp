@@ -70,7 +70,7 @@ namespace BattleShipLiteLibrary
         {
             int shotCount = 0;
 
-            foreach(var shot in player.ShotGrid)
+            foreach (var shot in player.ShotGrid)
             {
                 if (shot.Status != GridSpotStatus.Empty)
                 {
@@ -93,7 +93,7 @@ namespace BattleShipLiteLibrary
             {
                 model.ShipLocation.Add(new GridSpotModel
                 {
-                    SpotLetter = row,
+                    SpotLetter = row.ToUpper(),
                     SpotNumber = column,
                     Status = GridSpotStatus.Ship
 
@@ -107,12 +107,32 @@ namespace BattleShipLiteLibrary
 
         private static bool ValidateShipLocation(PlayerInfoModel model, string row, int column)
         {
-            throw new NotImplementedException();
+            bool isValidLocation = true;
+
+            foreach (var ship in model.ShipLocation)
+            {
+                if (ship.SpotLetter == row.ToUpper() && ship.SpotNumber == column)
+                {
+                    isValidLocation = false;
+                }
+            }
+
+            return isValidLocation;
         }
 
         private static bool ValidateGridLocation(PlayerInfoModel model, string row, int column)
         {
-            throw new NotImplementedException();
+            bool isValidLocation = false;
+
+            foreach (var ship in model.ShotGrid)
+            {
+                if (ship.SpotLetter == row.ToUpper() && ship.SpotNumber == column)
+                {
+                    isValidLocation = true;
+                }
+            }
+
+            return isValidLocation;
         }
 
         public static (string row, int column) SplitShotIntoRowAndColumn(string shot)
