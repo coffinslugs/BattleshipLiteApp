@@ -71,9 +71,19 @@ namespace BattleShipLiteLibrary
 
         }
 
-        public static int GetShotCount(PlayerInfoModel winner)
+        public static int GetShotCount(PlayerInfoModel player)
         {
-            throw new NotImplementedException();
+            int shotCount = 0;
+
+            foreach(var shot in player.ShotGrid)
+            {
+                if (shot.Status != GridSpotStatus.Empty)
+                {
+                    shotCount += 1;
+                }
+            }
+
+            return shotCount;
         }
 
         public static (string row, int column) SplitShotIntoRowAndColumn(string shot)
