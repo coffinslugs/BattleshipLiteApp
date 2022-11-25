@@ -189,8 +189,6 @@ namespace BattleShipLiteLibrary
 
         public static void MarkShotResult(PlayerInfoModel player, string row, int column, bool isAHit)
         {
-            bool isValidLocation = true;
-
             foreach (var gridSpot in player.ShotGrid)
             {
                 if (gridSpot.SpotLetter == row.ToUpper() && gridSpot.SpotNumber == column)
