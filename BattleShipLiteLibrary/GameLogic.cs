@@ -137,9 +137,18 @@ namespace BattleShipLiteLibrary
 
         public static (string row, int column) SplitShotIntoRowAndColumn(string shot)
         {
-            shot = shot.Trim();
-            string row = shot[0].ToString();
-            int column = shot[1];
+            string row = "";
+            int column = 0;
+
+            if (shot.Length != 2)
+            {
+                throw new ArgumentException("This is an invalid entry.", "shot");
+            }
+
+            char[] shotArray = shot.ToArray();
+
+            row = shotArray[0].ToString();
+            column = int.Parse(shotArray[1].ToString());
 
             return (row, column);
         }
