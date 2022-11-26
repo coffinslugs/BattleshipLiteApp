@@ -38,6 +38,8 @@ namespace BattleShipLite
 
             IdentifyWinner(winner);
 
+            Console.ReadLine();
+
         }
 
         private static void IdentifyWinner(PlayerInfoModel winner)
@@ -54,7 +56,7 @@ namespace BattleShipLite
 
             do
             {
-                string shot = AskForShot();
+                string shot = AskForShot(activePlayer);
                 try
                 {
                     (row, column) = GameLogic.SplitShotIntoRowAndColumn(shot);
@@ -76,18 +78,34 @@ namespace BattleShipLite
 
             GameLogic.MarkShotResult(activePlayer, row, column, isAHit);
 
+            DisplayShotResults(row, column, isAHit);
+
         }
 
-        private static string AskForShot()
+        private static void DisplayShotResults(string row, int column, bool isAHit)
         {
-            Console.Write("Please enter your shot selection: ");
+            if (isAHit)
+            {
+                Console.WriteLine($"{row}{column} is a hit!");
+            }
+            else
+            {
+                Console.WriteLine($"{row}{column} is a miss.");
+            }
+
+            Console.WriteLine();
+        }
+
+        private static string AskForShot(PlayerInfoModel activePlayer)
+        {
+            Console.Write($"{activePlayer.PlayerName}, please enter your shot selection: ");
             string output = Console.ReadLine();
 
             return output;
         }
 
         private static void DisplayShotGrid(PlayerInfoModel activePlayer)
-        {
+        {            
             string currentRow = activePlayer.ShotGrid[0].SpotLetter;
 
             foreach (var gridSpot in activePlayer.ShotGrid)
@@ -104,18 +122,22 @@ namespace BattleShipLite
                 }
                 else if (gridSpot.Status == GridSpotStatus.Hit)
                 {
-                    Console.Write(" X ");
+                    Console.Write(" X  ");
                 }
                 else if (gridSpot.Status == GridSpotStatus.Miss)
                 {
-                    Console.Write(" O ");
+                    Console.Write(" O  ");
                 }
                 else
                 {
-                    Console.Write(" ? ");
+                    Console.Write(" ?  ");
                 }
 
             }
+
+            Console.WriteLine();
+            Console.WriteLine();
+
         }
 
         private static void WelcomeMessage()
@@ -135,7 +157,7 @@ namespace BattleShipLite
             output.PlayerName = AskForPlayersName();
             
             // Load up grid
-            GameLogic.InitialiazeGrid(output);
+            GameLogic.InitializeGrid(output);
 
             // Ask user for their ship placement
             PlaceShips(output);

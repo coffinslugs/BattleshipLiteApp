@@ -10,7 +10,7 @@ namespace BattleShipLiteLibrary
 {
     public static class GameLogic
     {
-        public static void InitialiazeGrid(PlayerInfoModel model)
+        public static void InitializeGrid(PlayerInfoModel model)
         {
             List<string> letters = new List<string>
             {
@@ -53,7 +53,7 @@ namespace BattleShipLiteLibrary
 
         public static bool PlayerStillActive(PlayerInfoModel player)
         {
-            bool isActive = true;
+            bool isActive = false;
 
             foreach (var ship in player.ShipLocation)
             {
